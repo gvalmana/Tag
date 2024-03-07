@@ -15,6 +15,6 @@ class Tag extends Model
 
     public function getSlugAttribute()
     {
-        return str($this->name)->slug();
+        return strtolower(str_replace(' ','-',$this->name));
     }
 }

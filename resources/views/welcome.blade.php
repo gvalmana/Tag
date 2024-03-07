@@ -12,7 +12,7 @@
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body class="bg-gray-200 py-10" >
-        <div class="max-w-lg bg-withe mx-auto p-5 rounded shadow">
+        <div class="max-w-lg bg-white mx-auto p-5 rounded shadow">
             <form action="tags" method="POST" name="name" id="name" class="flex mb-4">
                 @csrf
                 <input type="text" name="name" id="name" placeholder="Ingresa una etiqueta" class="rounded-l bg-gray-200 p-4 w-full outline-none">
@@ -22,7 +22,8 @@
             <table>
                 @forelse ($tags as $tag)
                     <tr>
-                        <td>{{ $tag->name }}</td>
+                        <td class="border px-4 py-2">{{ $tag->name }}</td>
+                        <td class="border px-4 py-2">{{ $tag->slug }}</td>
                         <td class="border px-4 py-2">
                             <form action="tags/{{ $tag->id }}" method="POST">
                                 @csrf
